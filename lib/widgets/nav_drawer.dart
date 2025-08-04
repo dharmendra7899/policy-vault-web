@@ -44,22 +44,25 @@ class NavDrawer extends StatelessWidget {
   }
 
   Widget drawerItem(String title, String section, BuildContext context) {
-    return ListTile(
-      title: Text(
-        title,
-        style: TextTheme.of(context).titleLarge?.copyWith(
-          fontSize: 20,
-          fontWeight: FontWeight.w500,
-          color: appColors.appWhite,
-        ),
-      ),
+    return GestureDetector(
       onTap: () {
         navigationController.scrollTo(section);
-        navigationController.showPrivacy.value =false;
-        navigationController.showTerms.value =false;
+        navigationController.showPrivacy.value = false;
+        navigationController.showTerms.value = false;
         Navigator.of(Get.context!).pop();
       },
-
+      behavior: HitTestBehavior.opaque,
+      child: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Text(
+          title,
+          style: TextTheme.of(context).titleLarge?.copyWith(
+            fontSize: 20,
+            fontWeight: FontWeight.w500,
+            color: appColors.appWhite,
+          ),
+        ),
+      ),
     );
   }
 }

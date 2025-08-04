@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:policy_vault_web/theme/colors.dart';
 import 'package:policy_vault_web/widgets/dotted_widget.dart';
+import 'package:policy_vault_web/widgets/roles_and_responsibilities_section.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class PolicySection extends StatelessWidget {
@@ -102,6 +103,31 @@ class PolicySection extends StatelessWidget {
                 'This policy shall be reviewed and updated once every year to incorporate relevant changes. All subsequent updates to the policy shall be communicated over E-mail and made available on the intranet to all the employees by the end of March every year.',
                 style: style,
               ),
+              const SizedBox(height: 16),
+              Text(
+                'Policy',
+                style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                  color: appColors.secondary,
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                'Roles and Responsibility',
+                style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                  color: appColors.secondary,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              Text(
+                'Following Roles and Responsibilities have been carried out in Policy Vault :',
+                style: style,
+              ),
+
+              const SizedBox(height: 12),
+              RolesAndResponsibilitiesSection(),
               const SizedBox(height: 16),
               Text(
                 'Sensitive Personal Data',
@@ -338,7 +364,7 @@ class PolicySection extends StatelessWidget {
                         fontSize: 18,
                         fontWeight: FontWeight.w500,
                         decoration: TextDecoration.underline,
-                        decorationColor: appColors.hoverColor
+                        decorationColor: appColors.hoverColor,
                       ),
                       recognizer: TapGestureRecognizer()
                         ..onTap = () => sendEmail(),
