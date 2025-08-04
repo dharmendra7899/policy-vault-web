@@ -58,7 +58,7 @@ class NavHeader extends StatelessWidget implements PreferredSizeWidget {
       title: Text(
         "Policy Vault",
         style: TextTheme.of(context).titleLarge?.copyWith(
-          fontSize: 30,
+          fontSize: isMobile ? 20 : 30,
           fontWeight: FontWeight.w700,
           color: appColors.appWhite,
         ),

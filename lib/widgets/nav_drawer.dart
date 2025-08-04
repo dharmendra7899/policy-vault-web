@@ -18,11 +18,23 @@ class NavDrawer extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const SizedBox(height: 15),
-          Align(
-            alignment: Alignment.topRight,
-            child: IconButton(
-              icon: const Icon(Icons.close, color: Colors.white),
-              onPressed: () => Navigator.of(context).pop(),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Policy Vault",
+                  style: TextTheme.of(context).titleLarge?.copyWith(
+                    fontWeight: FontWeight.w600,
+                    color: appColors.appWhite,
+                  ),
+                ),
+                IconButton(
+                  icon: const Icon(Icons.close, color: Colors.white),
+                  onPressed: () => Navigator.of(context).pop(),
+                ),
+              ],
             ),
           ),
 
@@ -53,11 +65,10 @@ class NavDrawer extends StatelessWidget {
       },
       behavior: HitTestBehavior.opaque,
       child: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(16.0),
         child: Text(
           title,
-          style: TextTheme.of(context).titleLarge?.copyWith(
-            fontSize: 20,
+          style: TextTheme.of(context).bodyLarge?.copyWith(
             fontWeight: FontWeight.w500,
             color: appColors.appWhite,
           ),

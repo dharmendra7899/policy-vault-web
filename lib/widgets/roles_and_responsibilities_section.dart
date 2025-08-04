@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:policy_vault_web/theme/colors.dart';
 
@@ -8,11 +6,12 @@ class RolesAndResponsibilitiesSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextStyle headerStyle = Theme.of(context).textTheme.headlineMedium!.copyWith(
-      color: appColors.secondary,
-      fontSize: 16,
-      fontWeight: FontWeight.w600,
-    );
+    final TextStyle headerStyle = Theme.of(context).textTheme.headlineMedium!
+        .copyWith(
+          color: appColors.secondary,
+          fontSize: 16,
+          fontWeight: FontWeight.w600,
+        );
 
     final TextStyle cellStyle = Theme.of(context).textTheme.bodyLarge!.copyWith(
       height: 1.4,
@@ -25,7 +24,10 @@ class RolesAndResponsibilitiesSection extends StatelessWidget {
       child: ConstrainedBox(
         constraints: const BoxConstraints(minWidth: 800),
         child: Table(
-          border: TableBorder.all(color: appColors.borderColor.withValues(alpha: 0.7), width: 1),
+          border: TableBorder.all(
+            color: appColors.borderColor.withValues(alpha: 0.7),
+            width: 1,
+          ),
           defaultVerticalAlignment: TableCellVerticalAlignment.top,
           columnWidths: const {
             0: FixedColumnWidth(400),
@@ -66,7 +68,12 @@ class RolesAndResponsibilitiesSection extends StatelessWidget {
     );
   }
 
-  TableRow _buildRow(String col1, String col2, TextStyle style, {bool isHeader = false}) {
+  TableRow _buildRow(
+    String col1,
+    String col2,
+    TextStyle style, {
+    bool isHeader = false,
+  }) {
     return TableRow(
       decoration: isHeader
           ? BoxDecoration(color: appColors.borderColor.withValues(alpha: 0.7))
