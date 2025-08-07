@@ -24,7 +24,7 @@ class SectionWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       key: keyValue,
-      height: title == "Policy"||title == "Quick"?null:MediaQuery.of(context).size.height - 50,
+      height: title == "Policy"||title == "Quick"||title == "Term"?null:MediaQuery.of(context).size.height - 50,
       width: double.infinity,
       color: color,
       alignment: Alignment.center,

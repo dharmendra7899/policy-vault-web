@@ -19,26 +19,26 @@ class _BannerSectionState extends State<BannerSection> {
   final bannerList = [
     {
       "title": "Access Your",
-      "description": "Insurance Policy",
-      "slug": "In just a click",
+      "description": "Insurance Policies",
+      "slug": "In just a click!",
       "image": "assets/images/banner.png",
     },
     {
-      "title": "Share your Policy",
+      "title": "Share your Policies with",
       "description": "Your Family",
       "slug": "",
       "image": "assets/images/banner.png",
     },
     {
       "title": "Save upto 40% when you",
-      "description": "Compare buy and & renew",
+      "description": "Compare buy & renew",
       "slug": "",
       "image": "assets/images/banner.png",
     },
     {
       "title": "",
       "description": "Make a claim",
-      "slug": "from anywhere, anytime",
+      "slug": "from anywhere, anytime1",
       "image": "assets/images/banner.png",
     },
   ];
@@ -127,5 +127,4 @@ class _BannerSectionState extends State<BannerSection> {
       }),
     );
   }
-
 }
