@@ -228,7 +228,6 @@ class _AboutSectionState extends State<AboutSection>
                       height: 1.4,
                       fontWeight: FontWeight.w400,
                     ),
-
                   ),
                 ),
               ],

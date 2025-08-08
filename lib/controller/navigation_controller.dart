@@ -34,7 +34,7 @@ class NavigationController extends GetxController {
   };
 
   void setCurrentSection(String section) {
-    if (currentSection.value != section) {
+    if (!isClosed && currentSection.value != section) {
       currentSection.value = section;
     }
   }
@@ -47,11 +47,16 @@ class NavigationController extends GetxController {
         duration: const Duration(milliseconds: 500),
         curve: Curves.easeInOut,
       );
-      animateSection[section]?.value = false;
-      Future.delayed(const Duration(milliseconds: 100), () {
-        animateSection[section]?.value = true;
-      });
-      setCurrentSection(section);
+
+      if (!isClosed) {
+        animateSection[section]?.value = false;
+        Future.delayed(const Duration(milliseconds: 100), () {
+          if (!isClosed) {
+            animateSection[section]?.value = true;
+          }
+        });
+        setCurrentSection(section);
+      }
     }
   }
 

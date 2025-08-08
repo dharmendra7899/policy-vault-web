@@ -7,10 +7,21 @@ import 'package:policy_vault_web/widgets/nav_drawer.dart';
 import 'package:policy_vault_web/widgets/nav_header.dart';
 import 'package:policy_vault_web/widgets/section_widget.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   final NavigationController nav = Get.put(NavigationController());
 
-  HomePage({super.key});
+  @override
+  void dispose() {
+    nav.scrollController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +44,8 @@ class HomePage extends StatelessWidget {
   Widget _buildContent(BuildContext context) {
     return SingleChildScrollView(
       controller: nav.scrollController,
-      child: Column(mainAxisAlignment: MainAxisAlignment.start,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           SectionWidget(
             title: 'Home',
@@ -93,5 +105,3 @@ class HomePage extends StatelessWidget {
     );
   }
 }
-
-

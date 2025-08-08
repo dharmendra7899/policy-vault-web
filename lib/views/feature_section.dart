@@ -184,11 +184,14 @@ class _FeatureSectionState extends State<FeatureSection> {
                       ).titleLarge?.copyWith(color: appColors.secondary),
                     ),
                     Expanded(
-                      child: Text(
-                        text,
-                        style: TextTheme.of(context).bodyLarge?.copyWith(
-                          color: appColors.secondary,
-                          height: 1.4,
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 3.0),
+                        child: Text(
+                          text,
+                          style: TextTheme.of(context).bodyLarge?.copyWith(
+                            color: appColors.secondary,
+                            height: 1.4,
+                          ),
                         ),
                       ),
                     ),
