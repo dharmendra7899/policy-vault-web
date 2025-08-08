@@ -38,7 +38,7 @@ class DownloadSection extends StatelessWidget {
       Expanded(
         flex: isMobile ? 0 : 2,
         child: Padding(
-          padding: EdgeInsets.only(right: isMobile ? 16.0 : 608.0),
+          padding: EdgeInsets.only(right: isMobile ? 16.0 : 558.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,

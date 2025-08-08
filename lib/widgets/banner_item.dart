@@ -20,7 +20,6 @@ class BannerItem extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     final isMobile = width < 600;
 
-
     return Container(
       margin: EdgeInsets.only(top: isMobile ? 10 : 50),
       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 26),
@@ -29,19 +28,20 @@ class BannerItem extends StatelessWidget {
         direction: isMobile ? Axis.vertical : Axis.horizontal,
         mainAxisAlignment: isMobile
             ? MainAxisAlignment.spaceEvenly
-            :MainAxisAlignment.center,
+            : MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          Expanded(flex: isMobile ? 0 : 3, child: SizedBox()),
           Expanded(
             flex: isMobile ? 0 : 5,
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 if (title.isNotEmpty)
                   Text(
                     title.toUpperCase(),
-                    textAlign: isMobile ? TextAlign.center : TextAlign.left,
+                    textAlign: isMobile ? TextAlign.start : TextAlign.left,
                     style: TextTheme.of(context).titleLarge?.copyWith(
                       fontSize: isMobile ? 18 : 40,
                       fontWeight: FontWeight.w500,
@@ -51,17 +51,18 @@ class BannerItem extends StatelessWidget {
 
                 Text(
                   description.toUpperCase(),
-                  textAlign: isMobile ? TextAlign.center : TextAlign.left,
+                  textAlign: isMobile ? TextAlign.start : TextAlign.left,
                   style: TextTheme.of(context).headlineLarge?.copyWith(
-                    fontSize: isMobile ? 16 : 55,
+                    fontSize: isMobile ? 16 : 60,
                     fontWeight: FontWeight.bold,
+                    height: isMobile ? 1.2 : 1,
                     color: Colors.white,
                   ),
                 ),
                 if (slug.isNotEmpty)
                   Text(
                     slug.toUpperCase(),
-                    textAlign: isMobile ? TextAlign.center : TextAlign.left,
+                    textAlign: isMobile ? TextAlign.start : TextAlign.left,
                     style: TextTheme.of(context).titleLarge?.copyWith(
                       fontSize: isMobile ? 16 : 34,
                       fontWeight: FontWeight.w400,
@@ -74,13 +75,13 @@ class BannerItem extends StatelessWidget {
 
           // IMAGE SECTION
           Expanded(
-            flex: isMobile ? 0 : 4,
+            flex: isMobile ? 0 : 7,
             child: Padding(
               padding: EdgeInsets.only(top: isMobile ? 20 : 0),
               child: Image.asset(
                 image,
                 fit: BoxFit.contain,
-                scale: isMobile ?  1.6 : 1,
+                scale: isMobile ? 1.6 : 1,
               ),
             ),
           ),

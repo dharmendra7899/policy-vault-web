@@ -73,20 +73,21 @@ class _FeatureSectionState extends State<FeatureSection> {
       padding: const EdgeInsets.symmetric(vertical: 60, horizontal: 16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Text(
             'Policy Vault - the new-age\ninsurance wallet',
             textAlign: TextAlign.center,
             style: TextTheme.of(context).headlineLarge?.copyWith(
               color: appColors.secondary,
-              fontSize: isMobile ? 24 : 46,
+              fontSize: isMobile ? 24 : 56,
             ),
           ),
-          SizedBox(height: isMobile ? 40 : 80),
+         // SizedBox(height: isMobile ? 40 : 80),
 
           isMobile
               ? SizedBox(
-                  height: 260,
+                  height: 270,
                   child: ListView.separated(
                     scrollDirection: Axis.horizontal,
                     itemCount: features.length,

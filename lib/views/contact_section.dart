@@ -40,7 +40,7 @@ class ContactUsSection extends StatelessWidget {
 
   List<Widget> _buildChildren(BuildContext context, bool isMobile) {
     final content = Column(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       crossAxisAlignment: isMobile ? CrossAxisAlignment.center : CrossAxisAlignment.start,
       children: [
         Text(
@@ -69,7 +69,7 @@ class ContactUsSection extends StatelessWidget {
       padding: const EdgeInsets.all(16.0),
       child: Image.asset(
         'assets/images/contact.png',
-        scale:  isMobile ?1.5:1,
+        scale:  isMobile ?1.5:1.1,
       ),
     );
 

@@ -53,7 +53,6 @@ class NavHeader extends StatelessWidget implements PreferredSizeWidget {
     final isMobile = MediaQuery.of(context).size.width < 800;
     return AppBar(
       backgroundColor: appColors.primary,
-      elevation: 0,
       titleSpacing: 20,
       title: Text(
         "Policy Vault",
@@ -68,7 +67,6 @@ class NavHeader extends StatelessWidget implements PreferredSizeWidget {
           : [
               buildNavButton('Home', 'home'),
               buildNavButton('Feature', 'feature'),
-
               buildNavButton('Download', 'download'),
               buildNavButton('About', 'about'),
               buildNavButton('Contact', 'contact'),

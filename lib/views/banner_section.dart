@@ -19,26 +19,26 @@ class _BannerSectionState extends State<BannerSection> {
   final bannerList = [
     {
       "title": "Access Your",
-      "description": "Insurance Policies",
+      "description": "Insurance \nPolicies",
       "slug": "In just a click!",
       "image": "assets/images/banner.png",
     },
     {
       "title": "Share your Policies with",
-      "description": "Your Family",
+      "description": "Your \nFamily",
       "slug": "",
       "image": "assets/images/banner.png",
     },
     {
       "title": "Save upto 40% when you",
-      "description": "Compare buy & renew",
+      "description": "Compare buy \n& renew",
       "slug": "",
       "image": "assets/images/banner.png",
     },
     {
       "title": "",
-      "description": "Make a claim",
-      "slug": "from anywhere, anytime1",
+      "description": "Make \na claim",
+      "slug": "from anywhere, anytime!",
       "image": "assets/images/banner.png",
     },
   ];

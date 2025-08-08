@@ -75,7 +75,7 @@ class _AboutSectionState extends State<AboutSection>
                 Container(
                   width: double.infinity,
                   color: appColors.aboutColor,
-                  padding: EdgeInsets.all(isMobile ? 20 : 80),
+                  padding: EdgeInsets.all(isMobile ? 20 : 140),
                   child: FadeTransition(
                     opacity: _fadeAnimation,
                     child: SlideTransition(
@@ -138,7 +138,7 @@ class _AboutSectionState extends State<AboutSection>
                                                         nav.showPrivacy.value =
                                                             true;
                                                         nav.showTerms.value =
-                                                            true;
+                                                            false;
                                                       }
                                                       if (link ==
                                                           "Terms and Conditions") {
