@@ -49,7 +49,7 @@ class _AboutSectionState extends State<AboutSection>
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     final isMobile = width < 600;
-
+    final screenHeight = MediaQuery.of(context).size.height-50;
     return Obx(() {
       if (nav.animateSection['about']?.value == true) {
         _controller.forward(from: 0);
@@ -66,171 +66,176 @@ class _AboutSectionState extends State<AboutSection>
           }
         },
         child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Container(
-                width: double.infinity,
-                color: appColors.aboutColor,
-                padding: EdgeInsets.all(isMobile ? 20 : 100),
-                child: FadeTransition(
-                  opacity: _fadeAnimation,
-                  child: SlideTransition(
-                    position: _slideAnimation,
-                    child: Column(
-                      children: [
-                        Text(
-                          "Policy Vault",
-                          style: TextTheme.of(context).headlineLarge?.copyWith(
-                            color: appColors.appWhite,
-                            fontSize: 40,
-                            height: 1.8,
-                            decorationThickness: 1,
-                            fontWeight: FontWeight.w600,
-                            decoration: TextDecoration.underline,
-                            decorationColor: appColors.appWhite,
+          padding: EdgeInsets.zero,
+          child: ConstrainedBox(
+              constraints: BoxConstraints(minHeight: screenHeight),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  width: double.infinity,
+                  color: appColors.aboutColor,
+                  padding: EdgeInsets.all(isMobile ? 20 : 80),
+                  child: FadeTransition(
+                    opacity: _fadeAnimation,
+                    child: SlideTransition(
+                      position: _slideAnimation,
+                      child: Column(
+                        children: [
+                          Text(
+                            "Policy Vault",
+                            style: TextTheme.of(context).headlineLarge?.copyWith(
+                              color: appColors.appWhite,
+                              fontSize: 40,
+                              height: 1.8,
+                              decorationThickness: 1,
+                              fontWeight: FontWeight.w600,
+                              decoration: TextDecoration.underline,
+                              decorationColor: appColors.appWhite,
+                            ),
                           ),
-                        ),
-                        SizedBox(height: isMobile ? 60 : 70),
-                        Padding(
-                          padding: EdgeInsets.symmetric(
-                            horizontal: isMobile ? 0 : 150,
-                          ),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Expanded(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      "Useful Links",
-                                      style: TextTheme.of(context).bodyLarge
-                                          ?.copyWith(
-                                            color: appColors.appWhite,
-                                            fontWeight: FontWeight.w600,
-                                          ),
-                                    ),
-                                    const SizedBox(height: 20),
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children:
-                                          [
-                                            "Privacy Policy",
-                                            "Terms and Conditions",
-                                            "Contact",
-                                          ].map((link) {
-                                            return Padding(
-                                              padding:
-                                                  const EdgeInsets.symmetric(
-                                                    vertical: 2.0,
-                                                  ),
-                                              child: _HoverableLink(
-                                                text: link,
-                                                onTap: () {
-                                                  setState(() {
-                                                    if (link ==
-                                                        "Privacy Policy") {
-                                                      nav.showPrivacy.value =
-                                                          true;
-                                                      nav.showTerms.value =
-                                                          true;
-                                                    }
-                                                    if (link ==
-                                                        "Terms and Conditions") {
-                                                      nav.showTerms.value =
-                                                          true;
-                                                      nav.showPrivacy.value =
-                                                          false;
-                                                    }
-                                                    if (link == "Contact") {
-                                                      nav.showTerms.value =
-                                                          false;
-                                                      nav.showPrivacy.value =
-                                                          false;
-                                                    }
-                                                  });
+                          SizedBox(height: 60),
+                          Padding(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: isMobile ? 0 : 160,
+                            ),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        "Useful Links",
+                                        style: TextTheme.of(context).bodyLarge
+                                            ?.copyWith(
+                                              color: appColors.appWhite,
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                      ),
+                                      const SizedBox(height: 20),
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children:
+                                            [
+                                              "Privacy Policy",
+                                              "Terms and Conditions",
+                                              "Contact",
+                                            ].map((link) {
+                                              return Padding(
+                                                padding:
+                                                    const EdgeInsets.symmetric(
+                                                      vertical: 2.0,
+                                                    ),
+                                                child: _HoverableLink(
+                                                  text: link,
+                                                  onTap: () {
+                                                    setState(() {
+                                                      if (link ==
+                                                          "Privacy Policy") {
+                                                        nav.showPrivacy.value =
+                                                            true;
+                                                        nav.showTerms.value =
+                                                            true;
+                                                      }
+                                                      if (link ==
+                                                          "Terms and Conditions") {
+                                                        nav.showTerms.value =
+                                                            true;
+                                                        nav.showPrivacy.value =
+                                                            false;
+                                                      }
+                                                      if (link == "Contact") {
+                                                        nav.showTerms.value =
+                                                            false;
+                                                        nav.showPrivacy.value =
+                                                            false;
+                                                      }
+                                                    });
 
-                                                  final key = linkKey(link);
-                                                  final keyContext = nav
-                                                      .sectionKeys[key]
-                                                      ?.currentContext;
-                                                  if (keyContext != null) {
-                                                    Scrollable.ensureVisible(
-                                                      keyContext,
-                                                      duration: const Duration(
-                                                        milliseconds: 500,
-                                                      ),
-                                                      curve: Curves.easeInOut,
-                                                    );
-                                                  }
-                                                },
-                                              ),
-                                            );
-                                          }).toList(),
-                                    ),
-                                  ],
+                                                    final key = linkKey(link);
+                                                    final keyContext = nav
+                                                        .sectionKeys[key]
+                                                        ?.currentContext;
+                                                    if (keyContext != null) {
+                                                      Scrollable.ensureVisible(
+                                                        keyContext,
+                                                        duration: const Duration(
+                                                          milliseconds: 500,
+                                                        ),
+                                                        curve: Curves.easeInOut,
+                                                      );
+                                                    }
+                                                  },
+                                                ),
+                                              );
+                                            }).toList(),
+                                      ),
+                                    ],
+                                  ),
                                 ),
-                              ),
 
-                              // About Us
-                              Expanded(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      "About Us",
-                                      style: TextTheme.of(context).bodyLarge
-                                          ?.copyWith(
-                                            color: appColors.appWhite,
-                                            fontWeight: FontWeight.w600,
-                                          ),
-                                    ),
-                                    const SizedBox(height: 20),
-                                    Text(
-                                      "PolicyVault is a revolutionary Family Insurance Wallet designed to simplify the management and claims of any Insurance Policy. It is developed in India by Keewee Fintech ensuring it meets the evolving need of Insurance customers.",
-                                      style: TextTheme.of(context).labelLarge
-                                          ?.copyWith(
-                                            color: appColors.appWhite,
-                                            fontWeight: FontWeight.w500,
-                                            height: 1.4,
-                                          ),
-                                    ),
-                                  ],
+                                // About Us
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        "About Us",
+                                        style: TextTheme.of(context).bodyLarge
+                                            ?.copyWith(
+                                              color: appColors.appWhite,
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                      ),
+                                      const SizedBox(height: 20),
+                                      Text(
+                                        "PolicyVault is a revolutionary Family Insurance Wallet designed to simplify the management and claims of any Insurance Policy. It is developed in India by Keewee Fintech ensuring it meets the evolving need of Insurance customers.",
+                                        style: TextTheme.of(context).labelLarge
+                                            ?.copyWith(
+                                              color: appColors.appWhite,
+                                              fontWeight: FontWeight.w500,
+                                              height: 1.4,
+                                            ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
-                        ),
-                        const SizedBox(height: 40),
-                      ],
+                          const SizedBox(height: 30),
+                        ],
+                      ),
                     ),
                   ),
                 ),
-              ),
-              const SizedBox(height: 100),
-              Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: isMobile ? 22 : 38.0,
-                  vertical: isMobile ? 14 : 20,
-                ),
-                child: Text(
-                  '''Keewee Fintech Private Limited Recognized by #StartupIndia CERTIFICATE NO: DIPP153964 (VALID UPTO 19-10-2032) CIN: U72500UP2022PTC172513, \nRegistered Address- 12A Station Road LKO, Lucknow, Uttar Pradesh, India, 226001
-          \n© 2025 All Rights Reserved. Design by e-profitbooster''',
-                  textAlign: TextAlign.center,
-                  style: TextTheme.of(context).titleLarge?.copyWith(
-                    color: appColors.appWhite,
-                    fontSize: isMobile ? 12 : 14,
-                    height: 1.4,
-                    fontWeight: FontWeight.w400,
+                const SizedBox(height: 100),
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: isMobile ? 22 : 38.0,
+                    vertical: isMobile ? 14 : 40,
+                  ),
+                  child: Text(
+                    '''Keewee Fintech Private Limited Recognized by #StartupIndia CERTIFICATE NO: DIPP153964 (VALID UPTO 19-10-2032) CIN: U72500UP2022PTC172513, \nRegistered Address- 12A Station Road LKO, Lucknow, Uttar Pradesh, India, 226001
+            \n© 2025 All Rights Reserved. Design by e-profit booster''',
+                    textAlign: TextAlign.center,
+                    style: TextTheme.of(context).titleLarge?.copyWith(
+                      color: appColors.appWhite,
+                      fontSize: isMobile ? 12 : 14,
+                      height: 1.4,
+                      fontWeight: FontWeight.w400,
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       );
+
     });
   }
 

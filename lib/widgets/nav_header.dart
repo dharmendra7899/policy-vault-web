@@ -68,8 +68,9 @@ class NavHeader extends StatelessWidget implements PreferredSizeWidget {
           : [
               buildNavButton('Home', 'home'),
               buildNavButton('Feature', 'feature'),
-              buildNavButton('About', 'about'),
+
               buildNavButton('Download', 'download'),
+              buildNavButton('About', 'about'),
               buildNavButton('Contact', 'contact'),
               const SizedBox(width: 16),
             ],

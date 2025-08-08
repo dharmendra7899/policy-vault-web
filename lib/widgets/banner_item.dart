@@ -80,7 +80,7 @@ class BannerItem extends StatelessWidget {
               child: Image.asset(
                 image,
                 fit: BoxFit.contain,
-                scale: isMobile ?  1.4 : 1,
+                scale: isMobile ?  1.6 : 1,
               ),
             ),
           ),

@@ -3,26 +3,13 @@ import 'package:get/get.dart';
 
 class NavigationController extends GetxController {
   final scrollController = ScrollController();
+
   final currentSection = 'home'.obs;
 
-  RxBool showPrivacy = false.obs;
-  RxBool showTerms = false.obs;
+  final showPrivacy = false.obs;
+  final showTerms = false.obs;
 
   final hoveredItem = ''.obs;
-  final sectionKeys = {
-    'home': GlobalKey(),
-    'feature': GlobalKey(),
-    'quick': GlobalKey(),
-    'about': GlobalKey(),
-    'download': GlobalKey(),
-    'contact': GlobalKey(),
-    'terms': GlobalKey(),
-    'policy': GlobalKey(),
-  };
-
-  void setHovered(String section) => hoveredItem.value = section;
-
-  void clearHovered() => hoveredItem.value = '';
 
   final Map<String, RxBool> animateSection = {
     'home': false.obs,
@@ -35,6 +22,22 @@ class NavigationController extends GetxController {
     'terms': false.obs,
   };
 
+  final sectionKeys = {
+    'home': GlobalKey(),
+    'feature': GlobalKey(),
+    'quick': GlobalKey(),
+    'about': GlobalKey(),
+    'download': GlobalKey(),
+    'contact': GlobalKey(),
+    'terms': GlobalKey(),
+    'policy': GlobalKey(),
+  };
+
+  void setCurrentSection(String section) {
+    if (currentSection.value != section) {
+      currentSection.value = section;
+    }
+  }
 
   void scrollTo(String section) {
     final context = sectionKeys[section]?.currentContext;
@@ -44,15 +47,17 @@ class NavigationController extends GetxController {
         duration: const Duration(milliseconds: 500),
         curve: Curves.easeInOut,
       );
-
       animateSection[section]?.value = false;
       Future.delayed(const Duration(milliseconds: 100), () {
         animateSection[section]?.value = true;
       });
-
-      currentSection.value = section;
+      setCurrentSection(section);
     }
   }
+
+  void setHovered(String section) => hoveredItem.value = section;
+
+  void clearHovered() => hoveredItem.value = '';
 
   @override
   void onClose() {

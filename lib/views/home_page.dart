@@ -33,7 +33,7 @@ class HomePage extends StatelessWidget {
   Widget _buildContent(BuildContext context) {
     return SingleChildScrollView(
       controller: nav.scrollController,
-      child: Column(
+      child: Column(mainAxisAlignment: MainAxisAlignment.start,
         children: [
           SectionWidget(
             title: 'Home',

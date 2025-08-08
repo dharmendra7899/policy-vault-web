@@ -108,6 +108,7 @@ class _FeatureSectionState extends State<FeatureSection> {
                     scrollDirection: Axis.horizontal,
                     padding: const EdgeInsets.symmetric(horizontal: 12),
                     child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: List.generate(
                         features.length,
                         (i) => Padding(
@@ -136,9 +137,9 @@ class _FeatureSectionState extends State<FeatureSection> {
       cursor: SystemMouseCursors.click,
       child: AnimatedContainer(
         width: width,
-        height: 300,
+        height: 270,
         duration: const Duration(milliseconds: 200),
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 16),
         decoration: BoxDecoration(
           color: appColors.appWhite,
           borderRadius: BorderRadius.circular(6),
@@ -172,7 +173,7 @@ class _FeatureSectionState extends State<FeatureSection> {
             const SizedBox(height: 12),
             ...feature.bullets.map(
               (text) => Padding(
-                padding: const EdgeInsets.only(bottom: 6),
+                padding: const EdgeInsets.only(bottom: 7),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -185,9 +186,10 @@ class _FeatureSectionState extends State<FeatureSection> {
                     Expanded(
                       child: Text(
                         text,
-                        style: TextTheme.of(
-                          context,
-                        ).bodyLarge?.copyWith(color: appColors.secondary),
+                        style: TextTheme.of(context).bodyLarge?.copyWith(
+                          color: appColors.secondary,
+                          height: 1.4,
+                        ),
                       ),
                     ),
                   ],
